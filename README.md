@@ -1,9 +1,9 @@
 
-<PCName>
+PCBirthday
 =========
 maintained by [PandaClouds.com](https://pandaclouds.com)
 
-`<PCName>` provides a clean way to <description>
+`PCBirthday`  Calcuates age in years,  in months if child is below 2 years old and in days if child is below 1 month old.
 
 
 Installation
@@ -16,7 +16,7 @@ Installation
 3. Please run the following command.
 
 ```
-npm install --save @panda-clouds/<panda-blank>
+npm install --save @panda-clouds/birthday
 ```
 
 Usage
@@ -25,13 +25,13 @@ Usage
 ### Node.js
 
 ```javascript
-const <PCName> = require('@panda-clouds/<panda-blank>');
+const PCBirthday = require('@panda-clouds/birthday');
 
 // example usage
 
 ```
 
-You can replace <PCName> with any variable.
+You can replace PCBirthday with any variable.
 
 
 Methods
@@ -48,7 +48,7 @@ Example:
 
 ```javascript
 Parse.Cloud.beforeSave('Book', request =>{
-	const data = new <PCName>(request);
+	const data = new PCBirthday(request);
 	data.prop('title').mustExist();    // will throw Error if request.object.get('title') doesn't exist
 });
 ```
@@ -60,8 +60,8 @@ Contributions
 
 Pull requests are welcome! here is a checklist to speed things up:
 
-- modify `<PCName>.js`
-- add unit tests in `<PCName>.spec.js`
+- modify `PCBirthday.js`
+- add unit tests in `PCBirthday.spec.js`
 - run `npm test`
 - document method in `README.md`
 - add your name to 'Contributors' in `README.md`
@@ -72,6 +72,8 @@ Pull requests are welcome! here is a checklist to speed things up:
 (Add your name)
 
 - [*] [Marc Smith](https://github.com/mrmarcsmith)
+      [Noor Aboud](https://github.com/nusa232)
 
 
-[Unit Tests]: https://github.com/panda-clouds/string/blob/master/spec/<PCName>.spec.js
+
+[Unit Tests]: https://github.com/panda-clouds/string/blob/master/spec/PCBirthday.spec.js

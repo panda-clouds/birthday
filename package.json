@@ -1,14 +1,14 @@
 {
-  "name": "@panda-clouds/<panda-blank>",
+  "name": "@panda-clouds/birthday",
   "scripts": {
     "pretest": "eslint .",
     "test": "jest"
   },
-  "description": "<description>",
+  "description": "",
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/panda-clouds/<panda-blank>.git"
+    "url": "https://github.com/panda-clouds/birthday.git"
   },
   "author": {
     "name": "Marc Smith",
@@ -16,14 +16,16 @@
     "url": "https://github.com/mrmarcsmith"
   },
   "license": "MIT",
-  "main": "src/<>.js",
+  "main": "src/PCBirthday.js",
   "engines": {
     "node": ">= 8"
   },
   "devDependencies": {
     "@panda-clouds/eslint-config-panda-clouds": "^0.9.0",
+    "@panda-clouds/parse-runner": "^0.23.0",
     "eslint": "^6.2.0",
     "eslint-plugin-jasmine": "^2.10.1",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "moment": "^2.24.0"
   }
 }
