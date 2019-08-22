@@ -30,15 +30,47 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('1 Days');
 		});
 
-		it('should handle 2 day', async () => {
+		it('should handle null onDate', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2019-07-31');
+			const birthday = new Date('2019-07-30');
+
+			parseRunner.setClock(new Date(nowEpoch));
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, null]);
+
+			parseRunner.resetClock();
+			expect(results).toBe('3 Days');
+		});
+
+		it('should handle no birthday entered', async () => {
+			expect.assertions(1);
+
+			parseRunner.setClock(new Date(nowEpoch));
+			const results = await parseRunner.callHelper('ageFromBirthday', [null, null]);
+
+			parseRunner.resetClock();
+			expect(results).toBe('Missing birthday');
+		});
+
+		it('should handle null birthday and onDate', async () => {
+			expect.assertions(1);
 			const now = new Date(nowEpoch);
 
-			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+			parseRunner.setClock(new Date(nowEpoch));
+			const results = await parseRunner.callHelper('ageFromBirthday', [null, now]);
 
-			expect(results).toBe('2 Days');
+			parseRunner.resetClock();
+			expect(results).toBe('Missing birthday');
 		});
+
+		// it('should handle 2 day', async () => {
+		// 	expect.assertions(1);
+		// 	const birthday = new Date('2019-07-31');
+		// 	const now = new Date(nowEpoch);
+		//
+		// 	const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+		//
+		// 	expect(results).toBe('2 Days');
+		// });
 
 		it('should handle 3 day', async () => {
 			expect.assertions(1);
