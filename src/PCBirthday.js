@@ -10,48 +10,47 @@
 //
 // module.exports = <>;
 class PCBirthday {
-	static ageFromBirthday(birthday, onDate) {
-		let now = new Date();
-		let birthDate = 'something';
+	static ageFromBirthday(inputBirthday, onDate) {
+		let now;
+		let birthday;
 
-		// birthDate = 'something';
-		// let birthdayString = 'Missing birthday'
-
-	  if ((birthday === null || typeof birthday === 'undefined') && onDate === null || typeof onDate === 'undefined') {
-			birthDate = birthday;
-		  birthDate = 'Missing birthday';
-		} else if (birthday === null || birthday === 'undefined') {
-			birthDate = birthday;
-			birthDate = 'Missing birthday';
+		if (onDate) {
+			now = onDate;
 		} else {
-			if (onDate) {
-				now = onDate;
-			}
-
-			birthDate = birthday;
-
-			let age = now.getFullYear() - birthDate.getFullYear();
-			const m = now.getMonth() - birthDate.getMonth();
-			// const days = (now - birthday)/
-			const day =  Math.floor((now - birthDate) / (24 * 60 * 60 * 1000));
-			const test = (age * 12) + m;
-
-			if (test <= 1 && age < 1 && (day <= 30 || day <= 31)) {
-				age = day + ' Days';
-			} else if (test <= 24) {
-				age = (age * 12 + m) + ' Months';
-			} else {
-				age = (Number(age) * 1) + ' Years';
-			}
-			// if (m < 0 || (m === 0 && now.getDate() < birthDate.getDate())) {
-		  //      age = age--;
-			// 	 }
-			// const day =  Math.floor((birthDate.getDate()) - now.getDate() / (1000 * 60 * 60 * 24));
-
-			return age;
+			now = new Date();
 		}
 
-		return birthDate;
+		if (!inputBirthday) {
+			return 'Missing birthday';
+		}
+
+		// If we didn't recieve a date object
+		if (inputBirthday instanceof Date) {
+			// use the provided date
+			birthday = inputBirthday;
+		} else {
+			// attempt to construct a date object
+			birthday = new Date(inputBirthday);
+		}
+
+		// if we don't have a valid birthday
+		if (isNaN(birthday)) {
+			return 'Invalid birthday';
+		}
+
+		const age = now.getFullYear() - birthday.getFullYear();
+		const m = now.getMonth() - birthday.getMonth();
+		// const days = (now - birthday)/
+		const day =  Math.floor((now - birthday) / (24 * 60 * 60 * 1000));
+		const test = (age * 12) + m;
+
+		if (test <= 1 && age < 1 && (day <= 30 || day <= 31)) {
+			return day + ' Days';
+		} else if (test <= 24) {
+			return (age * 12 + m) + ' Months';
+		}
+
+		return (Number(age) * 1) + ' Years';
 	}
 }
 

@@ -18,7 +18,7 @@ describe('test PCBirthday.js', () => {
 
 
 	describe('ageFromBirthday', () => {
-		const nowEpoch = 1564766861593;
+		const nowEpoch = 1564766861593; // August 2, 2019
 
 		it('should handle 1 day', async () => {
 			expect.assertions(1);
@@ -30,24 +30,45 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('1 Days');
 		});
 
+		it('should handle string', async () => {
+			expect.assertions(1);
+			const birthday = '2019-08-01';
+
+			await parseRunner.setClock(new Date(nowEpoch));
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, null]);
+
+			await parseRunner.resetClock();
+			expect(results).toBe('1 Days');
+		});
+
 		it('should handle null onDate', async () => {
 			expect.assertions(1);
 			const birthday = new Date('2019-07-30');
 
-			parseRunner.setClock(new Date(nowEpoch));
+			await parseRunner.setClock(new Date(nowEpoch));
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, null]);
 
-			parseRunner.resetClock();
+			await parseRunner.resetClock();
 			expect(results).toBe('3 Days');
 		});
 
-		it('should handle no birthday entered', async () => {
+		it('should handle null birthday entered', async () => {
 			expect.assertions(1);
 
-			parseRunner.setClock(new Date(nowEpoch));
+			await parseRunner.setClock(new Date(nowEpoch));
 			const results = await parseRunner.callHelper('ageFromBirthday', [null, null]);
 
-			parseRunner.resetClock();
+			await parseRunner.resetClock();
+			expect(results).toBe('Missing birthday');
+		});
+
+		it('should handle undefined birthday entered', async () => {
+			expect.assertions(1);
+
+			await parseRunner.setClock(new Date(nowEpoch));
+			const results = await parseRunner.callHelper('ageFromBirthday', []);
+
+			await parseRunner.resetClock();
 			expect(results).toBe('Missing birthday');
 		});
 
@@ -55,10 +76,10 @@ describe('test PCBirthday.js', () => {
 			expect.assertions(1);
 			const now = new Date(nowEpoch);
 
-			parseRunner.setClock(new Date(nowEpoch));
+			await parseRunner.setClock(new Date(nowEpoch));
 			const results = await parseRunner.callHelper('ageFromBirthday', [null, now]);
 
-			parseRunner.resetClock();
+			await parseRunner.resetClock();
 			expect(results).toBe('Missing birthday');
 		});
 
