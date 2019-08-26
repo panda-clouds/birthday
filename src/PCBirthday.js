@@ -38,7 +38,7 @@ class PCBirthday {
 			return 'Invalid birthday';
 		}
 
-		const age = now.getFullYear() - birthday.getFullYear();
+		let age = now.getFullYear() - birthday.getFullYear();
 		const m = now.getMonth() - birthday.getMonth();
 		// const days = (now - birthday)/
 		const day =  Math.floor((now - birthday) / (24 * 60 * 60 * 1000));
@@ -50,7 +50,11 @@ class PCBirthday {
 			return (age * 12 + m) + ' Months';
 		}
 
-		return (Number(age) * 1) + ' Years';
+		if (now.getDate() < birthday.getDate()) {
+		      age -= 1;
+		    }
+
+		return age + ' Years';
 	}
 }
 

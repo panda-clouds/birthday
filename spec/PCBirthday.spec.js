@@ -616,39 +616,20 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('24 Months');
 		});
 
-		it('should handle 2 Years A', async () => {
+
+		it('should handle 3 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2017-07-04');
+			const birthday = new Date('2016-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
 
-			expect(results).toBe('2 Years');
+			expect(results).toBe('3 Years');
 		});
 
-		it('should handle 2 Years B', async () => {
+		it('should handle 3 Year B ', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2017-06-04');
-			const now = new Date(nowEpoch);
-
-			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
-
-			expect(results).toBe('2 Years');
-		});
-
-		it('should handle 2 Year C', async () => {
-			expect.assertions(1);
-			const birthday = new Date('2017-01-04');
-			const now = new Date(nowEpoch);
-
-			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
-
-			expect(results).toBe('2 Years');
-		});
-
-		it('should handle 2 Year', async () => {
-			expect.assertions(1);
-			const birthday = new Date('2016-06-04');
+			const birthday = new Date('2015-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -658,7 +639,7 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 4 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2015-06-04');
+			const birthday = new Date('2015-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -666,9 +647,18 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('4 Years');
 		});
 
+		it('should handle 4 Year B ', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2014-10-06');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('4 Years');
+		});
 		it('should handle 5 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2014-06-04');
+			const birthday = new Date('2014-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -676,9 +666,49 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('5 Years');
 		});
 
+		it('should handle 5 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2013-10-06');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('5 Years');
+		});
+
+		// it('should handle 4 Year', async () => {
+		// 	expect.assertions(1);
+		// 	const birthday = new Date('2015-08-01');
+		// 	const now = new Date(nowEpoch);
+		//
+		// 	const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+		//
+		// 	expect(results).toBe('4 Years');
+		// });
+		//
+		// it('should handle 4 Year B', async () => {
+		// 	expect.assertions(1);
+		// 	const birthday = new Date('2014-06-04');
+		// 	const now = new Date(nowEpoch);
+		//
+		// 	const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+		//
+		// 	expect(results).toBe('4 Years');
+		// });
+
 		it('should handle 6 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2013-06-04');
+			const birthday = new Date('2013-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('6 Years');
+		});
+
+		it('should handle 6 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2012-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -688,7 +718,17 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 7 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2012-06-04');
+			const birthday = new Date('2012-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('7 Years');
+		});
+
+		it('should handle 7 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2011-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -698,7 +738,17 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 8 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2011-06-04');
+			const birthday = new Date('2011-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('8 Years');
+		});
+
+		it('should handle 8 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2010-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -708,7 +758,17 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 9 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2010-06-04');
+			const birthday = new Date('2010-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('9 Years');
+		});
+
+		it('should handle 9 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2009-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -718,7 +778,7 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 10 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2009-06-04');
+			const birthday = new Date('2009-08-02');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -726,9 +786,29 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('10 Years');
 		});
 
+		it('should handle 10 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2008-10-06');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('10 Years');
+		});
+		//
 		it('should handle 11 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2008-06-04');
+			const birthday = new Date('2008-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('11 Years');
+		});
+
+		it('should handle 11 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2007-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -738,7 +818,7 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 12 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2007-06-04');
+			const birthday = new Date('2007-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -746,9 +826,29 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('12 Years');
 		});
 
+		it('should handle 12 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2006-10-06');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('12 Years');
+		});
+		//
 		it('should handle 13 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2006-06-04');
+			const birthday = new Date('2006-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('13 Years');
+		});
+
+		it('should handle 13 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2005-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -758,7 +858,7 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 14 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2005-06-04');
+			const birthday = new Date('2005-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -766,9 +866,29 @@ describe('test PCBirthday.js', () => {
 			expect(results).toBe('14 Years');
 		});
 
+		it('should handle 14 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2004-10-06');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('14 Years');
+		});
+		//
 		it('should handle 15 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2004-06-04');
+			const birthday = new Date('2004-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('15 Years');
+		});
+
+		it('should handle 15 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2003-06-04');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -778,7 +898,17 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 16 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2003-06-04');
+			const birthday = new Date('2003-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('16 Years');
+		});
+
+		it('should handle 16 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2002-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -788,7 +918,17 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 17 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2002-06-04');
+			const birthday = new Date('2002-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('17 Years');
+		});
+
+		it('should handle 17 Year B', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2001-10-06');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
@@ -798,12 +938,22 @@ describe('test PCBirthday.js', () => {
 
 		it('should handle 18 Year', async () => {
 			expect.assertions(1);
-			const birthday = new Date('2001-06-04');
+			const birthday = new Date('2001-08-01');
 			const now = new Date(nowEpoch);
 
 			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
 
 			expect(results).toBe('18 Years');
+		});
+
+		it('should handle 19 Year', async () => {
+			expect.assertions(1);
+			const birthday = new Date('2000-08-01');
+			const now = new Date(nowEpoch);
+
+			const results = await parseRunner.callHelper('ageFromBirthday', [birthday, now]);
+
+			expect(results).toBe('19 Years');
 		});
 	});
 });
